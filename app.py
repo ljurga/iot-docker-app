@@ -5,7 +5,11 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "IoT działa 🚀"
+    return "IoT działa 🚀 - v2.0"
+
+@app.route("/status")
+def status():
+    return {"status": "ok", "version": "1.0"}
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
