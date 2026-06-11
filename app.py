@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "IoT działa 🚀 - v2.0"
+    return "IoT działa bardzo dobrze"
 
 @app.route("/status")
 def status():
