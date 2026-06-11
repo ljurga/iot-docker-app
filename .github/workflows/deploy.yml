@@ -1,0 +1,21 @@
+name: CI/CD Docker Build
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t iot-app:latest .
+
+      - name: Test container
+        run: |
+          docker run -d -p 10000:10000 iot-app:latest
+          sleep 5
+          curl http://localhost:10000/
