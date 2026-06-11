@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -6,4 +7,6 @@ app = Flask(__name__)
 def home():
     return "IoT działa 🚀"
 
-app.run(host="0.0.0.0", port=80)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
