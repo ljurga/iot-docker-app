@@ -9,12 +9,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: docker build -t iot-app:latest .
 
-      - name: Test container
+      - name: Run container test
         run: |
           docker run -d -p 10000:10000 iot-app:latest
           sleep 5
